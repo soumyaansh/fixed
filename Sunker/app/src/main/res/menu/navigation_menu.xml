@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/boys_section"
+        android:title="Boy" />
+
+    <item android:id="@+id/girls_section"
+        android:title="Girl" />
+
+    <item android:id="@+id/Child_section"
+        android:title="Child" />
+
+    <item android:id="@+id/settings"
+        android:title="Settings" />
+
+    <item android:id="@+id/logout"
+        android:title="Logout" />
+
+
+</menu>

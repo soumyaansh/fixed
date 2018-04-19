@@ -9,8 +9,8 @@
     android:paddingRight="18dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@drawable/new_login_gradients"
-    tools:context="com.example.soumyaanshroy.final_1.MainActivity">
+    android:background="@drawable/login_bd_galaxy"
+    tools:context="com.example.soumyaanshroy.final_1.LoginActivity">
 
 
 
@@ -23,15 +23,6 @@
             android:orientation="vertical">
 
             <!-- Here you can put your logo or brand name -->
-
-            <ImageView
-                android:layout_width="240dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:padding="16dp"
-                android:layout_marginTop="48dp"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_directions_bike_black_24dp"/>
 
             <EditText
                 android:id="@+id/text_mobile"
@@ -46,7 +37,7 @@
                 android:textColorHint="#fff"
                 android:maxLines="1"
                 android:drawableLeft="@drawable/ic_person_white_24dp"
-                android:layout_marginTop="70dp"/>
+                android:layout_marginTop="80dp"/>
 
 
             <View
@@ -103,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/background_signup"
+                android:background="@drawable/btn_translucent_1"
                 android:clickable="true"
                 android:padding="16dp"
                 android:text="Sign up"
@@ -119,7 +110,7 @@
                 android:textColor="#fff"
                 android:padding="16dp"
                 android:clickable="true"
-                android:layout_marginBottom="16dp"/>
+                />
 
 
             <TextView
@@ -128,8 +119,8 @@
                 android:text="OR"
                 style="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="#fff"
-                android:layout_marginLeft="150dp"
-                android:padding="16dp"
+                android:layout_marginLeft="165dp"
+                android:padding="1dp"
                 android:clickable="true"
                 android:layout_marginBottom="16dp"/>
 
@@ -158,7 +149,7 @@
                         style="@style/Base.TextAppearance.AppCompat.Body1"
                         android:layout_width="170dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:background="@drawable/background_fb_btn"
                         android:clickable="true"
                         android:text="Facebook"
@@ -173,7 +164,7 @@
                     style="@style/Base.TextAppearance.AppCompat.Body1"
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/background_signup"
                     android:clickable="true"

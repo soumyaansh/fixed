@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="SHOP IN" android:id="@+id/shop_in_group">
+        <menu>
+    <item android:id="@+id/boys_section" android:icon="@drawable/boy_smile_icon_2" android:title="Boy"/>
+    <item android:id="@+id/girls_section" android:icon="@drawable/smiling_girl_icon_2" android:title="Girl" />
+        </menu>
+    </item>
+
+    <item android:title="SETTINGS" android:id="@+id/settings_group">
+        <menu>
+    <item android:id="@+id/settings" android:icon="@drawable/settings_icon_2" android:title="Settings" />
+        </menu>
+    </item>
+
+    <item android:title="BYE" android:id="@+id/logout_group">
+        <menu>
+    <item android:id="@+id/logout" android:icon="@drawable/power_icon_3" android:title="Logout" />
+        </menu>
+    </item>
+
+</menu>

@@ -9,8 +9,8 @@
     android:paddingRight="18dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@drawable/login_bd_galaxy"
-    tools:context="com.example.soumyaanshroy.final_1.LoginActivity">
+    android:background="@drawable/login_bg_1"
+    tools:context="com.example.soumyaanshroy.final_test_1.LoginActivity">
 
 
 
@@ -119,7 +119,7 @@
                 android:text="OR"
                 style="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="#fff"
-                android:layout_marginLeft="165dp"
+                android:layout_marginLeft="175dp"
                 android:padding="1dp"
                 android:clickable="true"
                 android:layout_marginBottom="16dp"/>
@@ -165,7 +165,7 @@
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/background_signup"
                     android:clickable="true"
                     android:text="Google"

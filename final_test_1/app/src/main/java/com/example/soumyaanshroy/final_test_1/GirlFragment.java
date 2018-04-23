@@ -3,101 +3,101 @@ package com.example.soumyaanshroy.final_test_1;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link GirlFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link GirlFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class GirlFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
+    View v;
+    private RecyclerView myrecyclerview;
+    private List<Buku> lstbukus;
 
     public GirlFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GirlFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static GirlFragment newInstance(String param1, String param2) {
-        GirlFragment fragment = new GirlFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.fragment_boy,container,false);
+
+        myrecyclerview = (RecyclerView) v.findViewById(R.id.recycler_boy_id);
+        Recycler_View_Adapter recycler_view_adapter = new Recycler_View_Adapter(getContext(),lstbukus);
+        myrecyclerview.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        myrecyclerview.setAdapter(recycler_view_adapter);
+
+
+        return v;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
+        lstbukus = new ArrayList<Buku>();
+
+        Buku buku1 = new Buku();
+        buku1.setName("just do it");
+        buku1.setThumbnail(R.drawable.justdoit);
+        buku1.setPrice("399");
+
+        Buku buku2 = new Buku();
+        buku2.setName("Batman");
+        buku2.setThumbnail(R.drawable.batman);
+        buku2.setPrice("399");
+
+        Buku buku3 = new Buku();
+        buku3.setName("Deadpool");
+        buku3.setThumbnail(R.drawable.dpool);
+        buku3.setPrice("399");
+
+        Buku buku4 = new Buku();
+        buku4.setName("Orange");
+        buku4.setThumbnail(R.drawable.orange);
+        buku4.setPrice("399");
+
+        Buku buku5 = new Buku();
+        buku5.setName("Triangle");
+        buku5.setThumbnail(R.drawable.triangle);
+        buku5.setPrice("399");
+
+        Buku buku6 = new Buku();
+        buku6.setName("Me");
+        buku6.setThumbnail(R.drawable.me);
+        buku6.setPrice("399");
+
+        Buku buku7 = new Buku();
+        buku7.setName("We");
+        buku7.setThumbnail(R.drawable.we);
+        buku7.setPrice("399");
+
+        Buku buku8 = new Buku();
+        buku8.setName("Figgit");
+        buku8.setThumbnail(R.drawable.figit);
+        buku8.setPrice("399");
+
+
+
+        lstbukus.add(buku1);
+        lstbukus.add(buku2);
+        lstbukus.add(buku3);
+        lstbukus.add(buku4);
+        lstbukus.add(buku5);
+        lstbukus.add(buku6);
+        lstbukus.add(buku7);
+        lstbukus.add(buku8);
+
+
+
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_girl, container, false);
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }

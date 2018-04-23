@@ -8,6 +8,26 @@
     android:id="@+id/dl"
     >
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_view_pager_1"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_marginBottom="8dp">
+
+    </android.support.v4.view.ViewPager>
+
+
+    <LinearLayout
+        android:id="@+id/home_slider_dots_1"
+        android:layout_below = "@+id/home_view_pager_1"
+        android:layout_marginTop="530dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center_horizontal">
+
+    </LinearLayout>
+
     <FrameLayout
         android:orientation = "vertical"
         android:id="@+id/flcontent"
@@ -35,6 +55,65 @@
             android:layout_height="54dp" />
 
     </android.support.design.widget.NavigationView>
+
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="550dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        tools:context="com.example.soumyaanshroy.final_test_1.HomeActivity">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            app:contentPaddingRight="10dp"
+            app:contentPaddingLeft="10dp"
+            app:cardMaxElevation="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:id="@+id/cardImage"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_below="@+id/cardImage"
+                    android:id="@+id/cardTitle"
+                    android:gravity="center_vertical"
+                    android:text="Card Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ProgressBar
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/cardProgressDialog"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
 
 

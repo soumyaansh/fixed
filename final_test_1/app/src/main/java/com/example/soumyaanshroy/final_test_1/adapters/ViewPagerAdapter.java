@@ -1,4 +1,4 @@
-package com.example.soumyaanshroy.final_test_1;
+package com.example.soumyaanshroy.final_test_1.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.example.soumyaanshroy.final_test_1.R;
 
 /**
  * Created by Soumyaansh Roy on 22-04-2018.

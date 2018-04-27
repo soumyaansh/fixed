@@ -1,4 +1,4 @@
-package com.example.soumyaanshroy.final_test_1;
+package com.example.soumyaanshroy.final_test_1.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.soumyaanshroy.final_test_1.R;
+import com.example.soumyaanshroy.final_test_1.adapters.OnBoardSlideAdapter;
+
 /**
  * Created by Soumyaansh Roy on 19-04-2018.
  */
@@ -30,7 +33,7 @@ public class OnboardActivity extends AppCompatActivity {
     private Button btnSkip;
     private Button btnNext;
 
-    private SlideAdapter slideAdapter;
+    private OnBoardSlideAdapter onBoardSlideAdapter;
 
 
     public Button getBtnSkip() {
@@ -98,8 +101,8 @@ public class OnboardActivity extends AppCompatActivity {
         });
 
         layouts = new int[] {R.layout.slide_1,R.layout.slide_2,R.layout.slide_3};
-        slideAdapter = new SlideAdapter(getApplicationContext(),layouts);
-        viewPager.setAdapter(slideAdapter);
+        onBoardSlideAdapter = new OnBoardSlideAdapter(getApplicationContext(),layouts);
+        viewPager.setAdapter(onBoardSlideAdapter);
 
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

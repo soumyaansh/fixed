@@ -1,4 +1,4 @@
-package com.example.soumyaanshroy.final_test_1;
+package com.example.soumyaanshroy.final_test_1.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -14,13 +14,13 @@ import com.example.soumyaanshroy.final_test_1.R;
  * Created by Soumyaansh Roy on 17-04-2018.
  */
 
-public class SlideAdapter extends PagerAdapter {
+public class OnBoardSlideAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
     private int[] layouts;
 
-    public SlideAdapter(Context context, int[] layouts) {
+    public OnBoardSlideAdapter(Context context, int[] layouts) {
         this.context = context;
         this.layouts = layouts;
     }
@@ -55,7 +55,7 @@ public class SlideAdapter extends PagerAdapter {
     };
 
 
-    public SlideAdapter(Context context) {
+    public OnBoardSlideAdapter(Context context) {
         this.context = context;
     }
 

@@ -1,4 +1,4 @@
-package com.example.soumyaanshroy.final_test_1;
+package com.example.soumyaanshroy.final_test_1.adapters;
 
 import android.widget.ArrayAdapter;
 
@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.soumyaanshroy.final_test_1.R;
+import com.example.soumyaanshroy.final_test_1.models.Card;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;

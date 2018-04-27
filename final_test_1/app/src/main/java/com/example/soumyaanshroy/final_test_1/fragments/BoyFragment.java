@@ -1,4 +1,4 @@
-package com.example.soumyaanshroy.final_test_1;
+package com.example.soumyaanshroy.final_test_1.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.soumyaanshroy.final_test_1.models.Buku;
+import com.example.soumyaanshroy.final_test_1.R;
+import com.example.soumyaanshroy.final_test_1.adapters.Recycler_View_Adapter;
 
 import java.util.ArrayList;
 import java.util.List;

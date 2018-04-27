@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.soumyaanshroy.final_test_1.OnboardActivity">
+    tools:context="com.example.soumyaanshroy.final_test_1.activities.OnboardActivity">
 
 
     <android.support.v4.view.ViewPager

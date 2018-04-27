@@ -1,24 +1,34 @@
-package com.example.soumyaanshroy.final_test_1;
+package com.example.soumyaanshroy.final_test_1.activities;
 
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import com.example.soumyaanshroy.final_test_1.R;
+import com.example.soumyaanshroy.final_test_1.adapters.MultiViewTypeAdapter;
+import com.example.soumyaanshroy.final_test_1.fragments.BoyFragment;
+import com.example.soumyaanshroy.final_test_1.fragments.GirlFragment;
+import com.example.soumyaanshroy.final_test_1.fragments.ProfileFragment;
+import com.example.soumyaanshroy.final_test_1.models.Data;
+
+import java.util.ArrayList;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 /**
@@ -33,12 +43,13 @@ public class HomeActivity extends AppCompatActivity {
     //---------------------------NAVIGATION CODE BELOW------------------------------------------
 
 
-    //---------------------------HOME SLIDER BELOW------------------------------------------
-    ViewPager viewPager;
-    private LinearLayout sliderDotPanel;
-    private int dotsCount;
-    private ImageView [] dots;
-    //---------------------------HOME SLIDER ABOVE------------------------------------------
+
+    //---------------------------RECYCLER CODE BELOW------------------------------------------
+
+    private RecyclerView mRecyclerView;
+    Unbinder mUnbinder;
+
+    //---------------------------RECYCLER CODE ABOVE------------------------------------------
 
 
 
@@ -50,54 +61,40 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        //---------------------------HOME SLIDER BELOW----------------------------------------------
-        viewPager = (ViewPager)findViewById(R.id.home_view_pager_1);
-        sliderDotPanel = (LinearLayout) findViewById(R.id.home_slider_dots_1);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
-        viewPager.setAdapter(viewPagerAdapter);
-        dotsCount = viewPagerAdapter.getCount();
-        dots = new ImageView[dotsCount];
 
 
-        for(int i = 0;i< dotsCount;i++){
 
-            dots[i] = new ImageView(this);
-            dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.nonactive_dot));
+        //---------------------------SET RECYCLER CARDS BELOW SLIDER----------------------------
 
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(8,0,8,0);
-            sliderDotPanel.addView(dots[i],params);
-        }
+        mRecyclerView = (RecyclerView)findViewById(R.id.rv);
 
-        dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.active_dot));
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mUnbinder = ButterKnife.bind(this);
 
+        ArrayList<Data> list = new ArrayList<>();
+        list.add(new Data(Data.VIEW_PAGER, "Hello. This is the View Pager view type with images", 0));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.disneys_cinderella));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_33));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_1));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_2));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_3));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_4));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_5));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_6));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_7));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_8));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_9));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_10));
+        list.add(new Data(Data.IMAGE_TYPE, "Hi again. A view with Image and Textview", R.drawable.snow));
 
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(list, this);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setAdapter(adapter);
 
-            }
+        //---------------------------SET RECYCLER CARDS BELOW SLIDER----------------------------
 
-            @Override
-            public void onPageSelected(int position) {
-                for(int i = 0;i< dotsCount;i++){
-                    dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.nonactive_dot));
-                }
-
-                dots[position].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.active_dot));
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new HomeTimerTask(),2000,4000);
-
-
-        //---------------------------HOME SLIDER ABOVE----------------------------------------------
 
 
 
@@ -109,6 +106,7 @@ public class HomeActivity extends AppCompatActivity {
         toggle = new ActionBarDrawerToggle(this,dl,R.string.open,R.string.close);
         dl.addDrawerListener(toggle);
         NavigationView nvDrawer = (NavigationView) findViewById(R.id.nv);
+        nvDrawer.setItemTextColor(ColorStateList.valueOf(Color.DKGRAY));
 
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -119,33 +117,11 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-
-    public class HomeTimerTask extends TimerTask{
-
-        @Override
-        public void run(){
-
-            HomeActivity.this.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-
-                    if(viewPager.getCurrentItem()== 0 ){
-                        viewPager.setCurrentItem(1);
-                    }else if(viewPager.getCurrentItem() == 1){
-                        viewPager.setCurrentItem(2);
-                    }else {
-                        viewPager.setCurrentItem(0);
-                    }
-                }
-            });
-
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mUnbinder != null) mUnbinder.unbind();
     }
-
-
-
-
-
 
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -184,7 +160,7 @@ public class HomeActivity extends AppCompatActivity {
            case R.id.girls_section:
                selected = true;
                break;
-           case R.id.settings:
+           case R.id.orders:
                selected = true;
                break;
        }
@@ -207,8 +183,8 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.girls_section:
                 fragmentClass = GirlFragment.class;
                 break;
-            case R.id.settings:
-                fragmentClass = SettingFragment.class;
+            case R.id.orders:
+                fragmentClass = ProfileFragment.class;
                 break;
 
             default:

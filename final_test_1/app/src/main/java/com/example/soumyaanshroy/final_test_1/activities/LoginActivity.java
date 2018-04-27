@@ -1,4 +1,4 @@
-package com.example.soumyaanshroy.final_test_1;
+package com.example.soumyaanshroy.final_test_1.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.soumyaanshroy.final_test_1.R;
+import com.example.soumyaanshroy.final_test_1.adapters.OnBoardSlideAdapter;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -104,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
     };
 
     private void loginButtonClicked() {
-        Intent myIntent = new Intent(LoginActivity.this, SlideAdapter.class);
+        Intent myIntent = new Intent(LoginActivity.this, OnBoardSlideAdapter.class);
         LoginActivity.this.startActivity(myIntent);
     }
 

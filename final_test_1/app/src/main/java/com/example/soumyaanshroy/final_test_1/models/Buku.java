@@ -1,4 +1,4 @@
-package com.example.soumyaanshroy.final_test_1;
+package com.example.soumyaanshroy.final_test_1.models;
 
 /**
  * Created by Soumyaansh Roy on 12-04-2018.

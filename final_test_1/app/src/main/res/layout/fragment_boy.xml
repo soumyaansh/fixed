@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="?android:attr/windowBackground"
-    tools:context="com.example.soumyaanshroy.final_test_1.BoyFragment">
+    tools:context="com.example.soumyaanshroy.final_test_1.fragments.BoyFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_boy_id"

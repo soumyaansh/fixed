@@ -3,21 +3,25 @@
 
     <item android:title="SHOP IN" android:id="@+id/shop_in_group">
         <menu>
-    <item android:id="@+id/boys_section" android:icon="@drawable/boy_smile_icon_2" android:title="Boy"/>
-    <item android:id="@+id/girls_section" android:icon="@drawable/smiling_girl_icon_2" android:title="Girl" />
+            <item android:id="@+id/boys_section" android:icon="@drawable/boy_smile_icon_2" android:title="Boy"/>
+            <item android:id="@+id/girls_section" android:icon="@drawable/smiling_girl_icon_2" android:title="Girl" />
         </menu>
     </item>
 
-    <item android:title="SETTINGS" android:id="@+id/settings_group">
+    <item android:title="MY ACCOUNT" android:id="@+id/account_group">
         <menu>
-    <item android:id="@+id/settings" android:icon="@drawable/settings_icon_2" android:title="Settings" />
+            <item android:id="@+id/profile" android:icon="@drawable/settings_icon_2" android:title="Profile" />
+            <item android:id="@+id/history" android:icon="@drawable/settings_icon_2" android:title="History" />
+            <item android:id="@+id/orders" android:icon="@drawable/settings_icon_2" android:title="Orders And Returns" />
+            <item android:id="@+id/wallet" android:icon="@drawable/settings_icon_2" android:title="My Wallet" />
+            <item android:id="@+id/wishlist" android:icon="@drawable/settings_icon_2" android:title="Wishlist" />
         </menu>
     </item>
 
-    <item android:title="BYE" android:id="@+id/logout_group">
-        <menu>
-    <item android:id="@+id/logout" android:icon="@drawable/power_icon_3" android:title="Logout" />
-        </menu>
-    </item>
+
+            <item android:id="@+id/faq" android:icon="@drawable/power_icon_3" android:title="FAQ" />
+            <item android:id="@+id/contact_us" android:icon="@drawable/power_icon_3" android:title="Contact Us" />
+            <item android:id="@+id/logout" android:icon="@drawable/power_icon_3" android:title="Logout" />
+
 
 </menu>

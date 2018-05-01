@@ -5,19 +5,20 @@ package com.example.soumyaanshroy.final_test_1.models;
  */
 
 public class Card {
-    private String imgURL;
+
+    private int imgURL;
     private String title;
 
-    public Card(String imgURL, String title) {
+    public Card(int imgURL, String title) {
         this.imgURL = imgURL;
         this.title = title;
     }
 
-    public String getImgURL() {
+    public int getImgURL() {
         return imgURL;
     }
 
-    public void setImgURL(String imgURL) {
+    public void setImgURL(int imgURL) {
         this.imgURL = imgURL;
     }
 

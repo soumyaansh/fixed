@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#81D4FA</color>
+    <color name="colorPrimary">#02BBD7</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="yellow">#AAA111</color>
-    <color name="yellow_1">#AAA000</color>
+    <color name="fluorescent">#C7FF00</color>
+    <color name="wow_yellow">#AAA000</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="wow_blue">#02BBD7</color>
+    <color name="wow_pink">#FE6B71</color>
+    <color name="wow_light_blue">#b0e2ff</color>
+    <color name="wow_light_pink">#ffdfe5</color>
+    <color name="wow_light_orange">#FF945A</color>
 </resources>

@@ -23,9 +23,13 @@ public class SignupActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_activity);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
 
         submitButton  = (Button)findViewById(R.id.btn_submit);
         submitButton.setOnClickListener(submitButtonOnClickListener);
+
+
 
     }
 

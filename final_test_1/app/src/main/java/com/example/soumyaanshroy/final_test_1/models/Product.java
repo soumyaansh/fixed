@@ -4,7 +4,7 @@ package com.example.soumyaanshroy.final_test_1.models;
  * Created by Soumyaansh Roy on 12-04-2018.
  */
 
-public class Buku {
+public class Product {
 
     private String id;
     private String name;
@@ -20,12 +20,12 @@ public class Buku {
     private String category;
     private int thumbnail;
 
-    public Buku(){
+    public Product(){
 
     }
 
 
-    public Buku(String id, String name, String type, String color, String gender, String desc, String price, String size, String sale, String discount, String quality, String category, int thumbnail) {
+    public Product(String id, String name, String type, String color, String gender, String desc, String price, String size, String sale, String discount, String quality, String category, int thumbnail) {
         this.id = id;
         this.name = name;
         this.type = type;

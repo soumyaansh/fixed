@@ -11,7 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.example.soumyaanshroy.final_test_1.models.HomeRecyclerContentCard;
+
+import com.example.soumyaanshroy.final_test_1.models.Data;
 import com.squareup.picasso.Picasso;
 import com.example.soumyaanshroy.final_test_1.R;
 import java.util.ArrayList;
@@ -20,13 +21,13 @@ import java.util.ArrayList;
 public class SliderPagerAdapter extends PagerAdapter {
     private LayoutInflater layoutInflater;
     Activity activity;
-    ArrayList<HomeRecyclerContentCard> image_arraylist;
-    private Integer[] images = {R.drawable.home_slider_img_9,R.drawable.home_slider_img_10,R.drawable.home_slider_img_11};
+    Data image_data;
 
 
-    public SliderPagerAdapter(Activity activity, ArrayList<HomeRecyclerContentCard> image_arraylist) {
+    public SliderPagerAdapter(Activity activity,Data image_data) {
+
         this.activity = activity;
-        this.image_arraylist = image_arraylist;
+        this.image_data = image_data;
     }
 
     @Override
@@ -35,8 +36,10 @@ public class SliderPagerAdapter extends PagerAdapter {
 
         View view = layoutInflater.inflate(R.layout.layout_slider, container, false);
         ImageView im_slider = (ImageView) view.findViewById(R.id.im_slider);
+        int image = image_data.images[position];
+
         Picasso.with(activity.getApplicationContext())
-                .load(images[position])
+                .load(image)
                 .into(im_slider);
 
 
@@ -47,7 +50,7 @@ public class SliderPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return images.length;
+        return image_data.images.length;
     }
 
 

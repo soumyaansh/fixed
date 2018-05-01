@@ -4,20 +4,18 @@
     android:id="@+id/slidelinearlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7323dc"
+    android:background="@color/wow_pink"
     android:orientation="vertical"
     android:gravity="center">
 
     <ImageView
-
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:src="@drawable/tee_2"
+        android:src="@drawable/tee_1"
         />
 
     <TextView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Shopping"
@@ -28,7 +26,6 @@
 
     <TextView
         android:text="Description"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

@@ -70,21 +70,22 @@ public class HomeActivity extends AppCompatActivity {
 
         mUnbinder = ButterKnife.bind(this);
 
+        Integer[] images = {R.drawable.home_slider_img_9,R.drawable.home_slider_img_10,R.drawable.home_slider_img_11};
+        Integer[] emptyArr = {};
+
         ArrayList<Data> list = new ArrayList<>();
-        list.add(new Data(Data.VIEW_PAGER, "Hello. This is the View Pager view type with images", 0));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.disneys_cinderella));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_33));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_1));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_2));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_3));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_4));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_5));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_6));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_7));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_8));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_9));
-        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_10));
-        list.add(new Data(Data.IMAGE_TYPE, "Hi again. A view with Image and Textview", R.drawable.snow));
+        list.add(new Data(Data.VIEW_PAGER, "Hello. This is the View Pager view type with images", 0,images));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_1,emptyArr));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_2,emptyArr));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_3,emptyArr));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_4,emptyArr));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_5,emptyArr));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_6,emptyArr));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_7,emptyArr));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_8,emptyArr));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_9,emptyArr));
+        list.add(new Data(Data.IMAGE_TYPE, "A view type with Image and Textview", R.drawable.card_10,emptyArr));
+
 
         MultiViewTypeAdapter adapter = new MultiViewTypeAdapter(list, this);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -173,7 +174,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Log.d("HOME ACTIVITY", "INSIDE selectItemDrawer "+menuItem.getItemId());
         Fragment myFragment = null;
-        Class fragmentClass;
+        Class fragmentClass = null;
 
         switch (menuItem.getItemId()){
 
@@ -187,21 +188,27 @@ public class HomeActivity extends AppCompatActivity {
                 fragmentClass = ProfileFragment.class;
                 break;
 
-            default:
+           /* default:
                 fragmentClass = BoyFragment.class;
-                break;
+                break;*/
         }
         try {
-            myFragment = (Fragment) fragmentClass.newInstance();
+            if(fragmentClass != null){
+
+                myFragment = (Fragment) fragmentClass.newInstance();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_content_frame,myFragment).commit();
+                menuItem.setChecked(true);
+                setTitle(menuItem.getTitle());
+
+            }
+
         }
         catch (Exception e) {
             e.printStackTrace();
         }
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flcontent,myFragment).commit();
-        menuItem.setChecked(true);
-        setTitle(menuItem.getTitle());
+
 
         Log.d("HOME ACTIVITY", "CLOSE DRAWERS");
         boolean notFirstTime = isAnyItemSelected(menuItem);

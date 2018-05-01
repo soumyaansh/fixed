@@ -89,6 +89,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
+
         Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
 
         signUpButton  = (Button)findViewById(R.id.btn_signup);
@@ -96,6 +99,9 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton  = (Button)findViewById(R.id.btn_login);
         loginButton.setOnClickListener(loginButtonOnClickListener);
+
+
+
 
     }
 

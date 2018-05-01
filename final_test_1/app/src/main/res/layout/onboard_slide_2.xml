@@ -4,15 +4,16 @@
     android:id="@+id/slidelinearlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7323dc"
+    android:background="@color/wow_blue"
     android:orientation="vertical"
     android:gravity="center">
 
     <ImageView
+
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:src="@drawable/tee_3"
+        android:src="@drawable/tee_2"
         />
 
     <TextView

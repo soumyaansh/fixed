@@ -16,24 +16,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
-
 
 import com.example.soumyaanshroy.final_test_1.R;
 import com.example.soumyaanshroy.final_test_1.models.Data;
-
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class CatalogTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<Data> dataSet;
     Context mContext;
     int total_types;
     int page = 0;
 
-    public MultiViewTypeAdapter(ArrayList<Data> data, Context context) {
+    public CatalogTypeAdapter(ArrayList<Data> data, Context context) {
         this.dataSet = data;
         this.mContext = context;
         total_types = data.size();
@@ -41,12 +40,24 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
 
 
     public static class TextTypeViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.ll_dots)
+        @BindView(R.id.catalog_ll_dots)
         LinearLayout ll_dots;
-        @BindView(R.id.vp_slider)
+        @BindView(R.id.catalog_vp_slider)
         ViewPager mvViewPager;
 
         public TextTypeViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
+    }
+
+    public static class TableTypeViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.product_title)
+        TextView product_title;
+        @BindView(R.id.product_price)
+        TextView product_price;
+
+        public TableTypeViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
@@ -83,11 +94,14 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
         View view;
         switch (viewType) {
             case Data.VIEW_PAGER:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_viewpager, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.catalog_viewpager, parent, false);
                 return new TextTypeViewHolder(view);
             case Data.IMAGE_TYPE:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image_type, parent, false);
                 return new ImageTypeViewHolder(view);
+            case Data.TABLE_TYPE:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.catalog_table_layout, parent, false);
+                return new TableTypeViewHolder(view);
         }
         return null;
 
@@ -103,6 +117,8 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                 return Data.VIEW_PAGER;
             case 1:
                 return Data.IMAGE_TYPE;
+            case 2:
+                return Data.TABLE_TYPE;
             default:
                 return -1;
         }
@@ -158,6 +174,11 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
                     ((ImageTypeViewHolder) holder).iv.setImageResource(object.image);
                     break;
 
+                case Data.TABLE_TYPE:
+                    ((TableTypeViewHolder) holder).product_title.setText(object.text);
+                    ((TableTypeViewHolder) holder).product_price.setText(object.text);
+                    break;
+
             }
         }
 
@@ -170,7 +191,7 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     //showing dots on screen
     private void addBottomDots(int currentPage, LinearLayout ll_dots) {
-        TextView[] dots = new TextView[dataSet.get(currentPage).images.length];
+        TextView[] dots = new TextView[dataSet.get(0).images.length];
         ll_dots.removeAllViews();
 
         for (int i = 0; i < dots.length; i++) {

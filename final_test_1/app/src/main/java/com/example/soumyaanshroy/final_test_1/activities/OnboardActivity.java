@@ -100,7 +100,7 @@ public class OnboardActivity extends AppCompatActivity {
             }
         });
 
-        layouts = new int[] {R.layout.slide_1,R.layout.slide_2,R.layout.slide_3};
+        layouts = new int[] {R.layout.onboard_slide_1,R.layout.onboard_slide_2,R.layout.onboard_slide_3};
         onBoardSlideAdapter = new OnBoardSlideAdapter(getApplicationContext(),layouts);
         viewPager.setAdapter(onBoardSlideAdapter);
 

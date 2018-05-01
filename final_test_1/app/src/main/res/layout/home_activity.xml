@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="18dp"
-    android:paddingRight="18dp"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.soumyaanshroy.final_test_1.activities.HomeActivity">
 
 
@@ -22,36 +17,6 @@
     android:id="@+id/dl"
     >
 
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/home_view_pager_1"
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:layout_marginBottom="8dp">
-        </android.support.v4.view.ViewPager>
-
-
-        <LinearLayout
-            android:id="@+id/home_slider_dots_1"
-            android:layout_below = "@+id/home_view_pager_1"
-            android:layout_marginTop="530dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical|center_horizontal">
-
-        </LinearLayout>
-
-        <FrameLayout
-            android:orientation = "vertical"
-            android:id="@+id/flcontent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </FrameLayout>
-
-
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv"
             android:layout_width="match_parent"
@@ -61,7 +26,15 @@
 
         </android.support.v7.widget.RecyclerView>
 
+    <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
+    <FrameLayout
+        android:orientation = "vertical"
+        android:id="@+id/nav_content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
 
+    <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
     <android.support.design.widget.NavigationView
         app:headerLayout="@layout/header"
         app:itemTextColor="#fff"
@@ -75,8 +48,7 @@
     </android.support.design.widget.NavigationView>
 
 
-
 </android.support.v4.widget.DrawerLayout>
 
 
-</LinearLayout>
+</RelativeLayout>
